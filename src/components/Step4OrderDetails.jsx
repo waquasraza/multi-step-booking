@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Step4OrderDetails = ({ prevStep, nextStep, selectedServiceItems, basicDetails }) => {
+const Step4OrderDetails = ({ prevStep, nextStep, selectedServiceItems,selectedSpecialists, details }) => {
   
   const calculateTotalAmount = () => {
     return selectedServiceItems.reduce((total, item) => total + item.price, 0).toFixed(2);
@@ -42,17 +42,17 @@ const Step4OrderDetails = ({ prevStep, nextStep, selectedServiceItems, basicDeta
       ))}
       
       {/* Show basic details */}
-      {/* <div className="basic-details">
+      <div className="basic-details">
         <h4>Basic Details:</h4>
-        <p>Name: {basicDetails?.name}</p>
-        <p>Phone Number: {basicDetails?.phoneNumber}</p>
-        <p>Email: {basicDetails?.email}</p>
-        <p>Address: {basicDetails?.address}</p>
-        <p>Country: {basicDetails?.country}</p>
-        <p>State: {basicDetails?.state}</p>
-        <p>City: {basicDetails?.city}</p>
-        <p>Pincode: {basicDetails?.pincode}</p>
-      </div> */}
+        <p>Name: {details?.name}</p>
+        <p>Phone Number: {details?.phoneNumber}</p>
+        <p>Email: {details?.email}</p>
+        <p>Address: {details?.address}</p>
+        <p>Country: {details?.country}</p>
+        <p>State: {details?.state}</p>
+        <p>City: {details?.city}</p>
+        <p>Pincode: {details?.pincode}</p>
+      </div>
 
       {/* Display total amount */}
       <div className="total-amount">

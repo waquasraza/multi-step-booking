@@ -16,21 +16,20 @@ const Accordion = ({ services, selectedServiceItems, onSelectedItemsChange }) =>
   };
 
   const updateSelectedItems = (event) => {
-    const { name, price, category, subcategory, childCategory } = event.target.dataset;
-    const updatedItems = [...selectedServiceItems];
-
-    // Create a unique identifier for the item
+    const { name, price, category, subcategory } = event.target.dataset;
     const uniqueName = `${category}-${subcategory}-${name}`;
 
+    let updatedItems;
+
     if (event.target.checked) {
-      // Add the item with the unique identifier
-      updatedItems.push({ name, price: parseInt(price), category, subcategory, childCategory, uniqueName });
+      // Create a new array with the added item
+      updatedItems = [
+        ...selectedServiceItems,
+        { name, price: parseInt(price), category, subcategory, uniqueName }
+      ];
     } else {
-      // Remove the item based on the unique identifier
-      const index = updatedItems.findIndex((item) => item.uniqueName === uniqueName);
-      if (index > -1) {
-        updatedItems.splice(index, 1);
-      }
+      // Create a new array without the removed item
+      updatedItems = selectedServiceItems.filter(item => item.uniqueName !== uniqueName);
     }
 
     onSelectedItemsChange(updatedItems);
@@ -101,7 +100,6 @@ const Accordion = ({ services, selectedServiceItems, onSelectedItemsChange }) =>
                                       />
                                       <span>{item.name}</span>
                                     </label>
-                                    <span className="price">₹{item.price}</span>
                                   </div>
                                 ))}
                               </div>

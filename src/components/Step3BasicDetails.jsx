@@ -1,21 +1,7 @@
 import React, { useState } from 'react';
 import { statesData } from './../servicesData'; // Import the states data
 
-const Step3BasicDetails = ({ prevStep, nextStep, selectedSpecialists }) => {
-  const [details, setDetails] = useState({
-    name: '',
-    phoneNumber: '',
-    email: '',
-    address: '',
-    country: 'India', // Default country
-    state: '',
-    city: '',
-    pincode: ''
-  });
-
-  console.log('selectedSpecialists', selectedSpecialists)
-  console.log('hello')
-
+const Step3BasicDetails = ({ prevStep, nextStep, selectedServiceItems, selectedSpecialists, details, handleDetailChange }) => {
   const [errors, setErrors] = useState({});
 
   const validate = (name, value) => {
@@ -58,10 +44,7 @@ const Step3BasicDetails = ({ prevStep, nextStep, selectedSpecialists }) => {
       return;
     }
 
-    setDetails(prevDetails => ({
-      ...prevDetails,
-      [name]: value
-    }));
+    handleDetailChange(name, value);
 
     // Validate the field on change
     const error = validate(name, value);
@@ -73,11 +56,8 @@ const Step3BasicDetails = ({ prevStep, nextStep, selectedSpecialists }) => {
 
   const handleStateChange = (e) => {
     const selectedState = e.target.value;
-    setDetails(prevDetails => ({
-      ...prevDetails,
-      state: selectedState,
-      city: '' // Reset city when state changes
-    }));
+    handleDetailChange('state', selectedState);
+    handleDetailChange('city', '');
 
     const error = validate('state', selectedState);
     setErrors(prevErrors => ({
@@ -89,10 +69,7 @@ const Step3BasicDetails = ({ prevStep, nextStep, selectedSpecialists }) => {
 
   const handleCityChange = (e) => {
     const selectedCity = e.target.value;
-    setDetails(prevDetails => ({
-      ...prevDetails,
-      city: selectedCity
-    }));
+    handleDetailChange('city', selectedCity);
 
     const error = validate('city', selectedCity);
     setErrors(prevErrors => ({
@@ -128,17 +105,17 @@ const Step3BasicDetails = ({ prevStep, nextStep, selectedSpecialists }) => {
       <h2>Basic Details</h2>
       <div className="form-group">
         <label>Name:</label>
-        <input type="text" name="name" value={details.name} onChange={handleChange} />
+        <input type="text" name="name" value={details?.name} onChange={handleChange} />
         {errors.name && <p className="error">{errors.name}</p>}
       </div>
       <div className="form-group">
         <label>Phone Number:</label>
-        <input type="text" name="phoneNumber" value={details.phoneNumber} onChange={handleChange} />
+        <input type="text" name="phoneNumber" value={details?.phoneNumber} onChange={handleChange} />
         {errors.phoneNumber && <p className="error">{errors.phoneNumber}</p>}
       </div>
       <div className="form-group">
         <label>Email:</label>
-        <input type="email" name="email" value={details.email} onChange={handleChange} />
+        <input type="email" name="email" value={details?.email} onChange={handleChange} />
         {errors.email && <p className="error">{errors.email}</p>}
       </div>
       <div className="form-group">
@@ -146,7 +123,7 @@ const Step3BasicDetails = ({ prevStep, nextStep, selectedSpecialists }) => {
         <input
           type="text"
           name="address"
-          value={details.address}
+          value={details?.address}
           onChange={handleChange}
         />
         {errors.address && <p className="error">{errors.address}</p>}
@@ -154,16 +131,16 @@ const Step3BasicDetails = ({ prevStep, nextStep, selectedSpecialists }) => {
       <div className="form-row" style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div className="form-group" style={{ width: '48%' }}>
           <label>Country:</label>
-          <select className="styled-select" name="country" value={details.country} onChange={handleChange} disabled>
+          <select className="styled-select" name="country" value={details?.country} onChange={handleChange} disabled>
             <option value="India">India</option>
             {/* Add more countries if needed */}
           </select>
         </div>
         <div className="form-group" style={{ width: '48%' }}>
           <label>State:</label>
-          <select className="styled-select" name="state" value={details.state} onChange={handleStateChange}>
+          <select className="styled-select" name="state" value={details?.state} onChange={handleStateChange}>
             <option value="">Select a state</option>
-            {Object.keys(statesData[details.country]).map((state) => (
+            {Object.keys(statesData[details?.country]).map((state) => (
               <option key={state} value={state}>{state}</option>
             ))}
           </select>
@@ -173,9 +150,9 @@ const Step3BasicDetails = ({ prevStep, nextStep, selectedSpecialists }) => {
       <div className="form-row" style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div className="form-group" style={{ width: '48%' }}>
           <label>City:</label>
-          <select className="styled-select" name="city" value={details.city} onChange={handleCityChange} disabled={!details.state}>
+          <select className="styled-select" name="city" value={details?.city} onChange={handleCityChange} disabled={!details.state}>
             <option value="">Select a city</option>
-            {details.state && statesData[details.country][details.state].map((city) => (
+            {details?.state && statesData[details?.country][details?.state].map((city) => (
               <option key={city} value={city}>{city}</option>
             ))}
           </select>
@@ -183,7 +160,7 @@ const Step3BasicDetails = ({ prevStep, nextStep, selectedSpecialists }) => {
         </div>
         <div className="form-group" style={{ width: '48%' }}>
           <label>Pincode:</label>
-          <input type="text" className="pincodeInput" name="pincode" value={details.pincode} onChange={handleChange} />
+          <input type="text" className="pincodeInput" name="pincode" value={details?.pincode} onChange={handleChange} />
           {errors.pincode && <p className="error">{errors.pincode}</p>}
         </div>
       </div>

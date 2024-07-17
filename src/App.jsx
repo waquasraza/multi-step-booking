@@ -12,6 +12,16 @@ const App = () => {
   const [step, setStep] = useState(1);
   const [selectedServiceItems, setSelectedServiceItems] = useState([]);
   const [selectedSpecialists, setSelectedSpecialists] = useState({});
+  const [basicDetails, setBasicDetails] = useState({
+    name: '',
+    phoneNumber: '',
+    email: '',
+    address: '',
+    country: 'India',
+    state: '',
+    city: '',
+    pincode: ''
+  });
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
@@ -23,6 +33,14 @@ const App = () => {
   const handleSelectedSpecialistsChange = (specialists) => {
     setSelectedSpecialists(specialists);
   };
+
+  const handleDetailChange = (name, value) => {
+    setBasicDetails(prevDetails => ({
+      ...prevDetails,
+      [name]: value
+    }));
+  };
+
 
   return (
     <div className="booking-container">
@@ -42,19 +60,32 @@ const App = () => {
           onSelectedSpecialistsChange={handleSelectedSpecialistsChange}
         />
       )}
-      {step === 3 && <Step3BasicDetails prevStep={prevStep} nextStep={nextStep} />}
+      {step === 3 && (
+        <Step3BasicDetails 
+          prevStep={prevStep} 
+          nextStep={nextStep}
+          selectedServiceItems={selectedServiceItems}
+          selectedSpecialists={selectedSpecialists}
+          details={basicDetails}
+          handleDetailChange={handleDetailChange}
+          />
+        )}
+
       {step === 4 && (
         <Step4OrderDetails
           prevStep={prevStep}
           nextStep={nextStep}
           selectedServiceItems={selectedServiceItems}
           selectedSpecialists={selectedSpecialists}
+          details={basicDetails}
           />
         )}
       {step === 5 && 
         <Step5PaymentOption 
         prevStep={prevStep} 
         selectedServiceItems={selectedServiceItems}
+        selectedSpecialists={selectedSpecialists}
+        details={basicDetails}
         />}
     </div>
   );

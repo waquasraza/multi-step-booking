@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { categorySpecialists } from '../servicesData';
 import './Step2ChooseSpecialist.css';
 
-const Step2ChooseSpecialist = ({ prevStep, nextStep, selectedServiceItems }) => {
+const Step2ChooseSpecialist = ({ prevStep, nextStep, selectedServiceItems, selectedSpecialists, onSelectedSpecialistsChange }) => {
   const [specialistsByCategory, setSpecialistsByCategory] = useState({});
   const [selected, setSelected] = useState({});
   const [allSelected, setAllSelected] = useState(false);
@@ -22,7 +22,9 @@ const Step2ChooseSpecialist = ({ prevStep, nextStep, selectedServiceItems }) => 
   }, [specialistsByCategory, selected]);
 
   const handleSelectionChange = (category, specialist) => {
-    setSelected(prev => ({ ...prev, [category]: specialist }));
+    const updatedSelected = { ...selected, [category]: specialist };
+    setSelected(updatedSelected);
+    onSelectedSpecialistsChange(updatedSelected);
   };
 
   const handleNextStep = () => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Step5PaymentOption = ({ prevStep, selectedServiceItems }) => {
+const Step5PaymentOption = ({ prevStep, selectedServiceItems, selectedSpecialists, details }) => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [percentageAmount, setPercentageAmount] = useState(0);
   const [utrNumber, setUtrNumber] = useState('');
