@@ -1,0 +1,341 @@
+/* styles.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.booking-container {
+  width: 70%;
+  max-width: 1000px;
+  margin: 100px auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+}
+
+.step {
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #AD8858;
+}
+
+.accordion-item {
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  transition: background 0.3s;
+}
+
+.accordion-header:hover {
+  background-color: #e9ecef;
+}
+
+.accordion-content {
+  padding: 15px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  margin: 10px 0; /* Adjust as needed */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-label input {
+  margin-right: 10px; /* Space between checkbox and item name */
+}
+
+.price {
+  color: #1e180f;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.prev-button,
+.next-button,
+.submit-button {
+  padding: 12px 25px;
+  background-color: #AD8858;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.prev-button:hover,
+.next-button:hover,
+.submit-button:hover {
+  /* background-color: #AD8858; */
+  transform: translateY(-1px);
+}
+
+.specialists-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.specialist-card {
+  flex: 1 1 30%; /* Adjusts based on available space */
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.specialist-card:hover {
+  background-color: #e9ecef;
+  transform: translateY(-1px);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+  width: 96%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus {
+  border: 1px solid #AD8858;
+  outline: none;
+}
+
+.total-amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #1e180f;
+}
+
+.two-column-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.form-section {
+  width: 65%; /* Adjust as needed */
+  margin-right: 20px; /* Space between sections */
+}
+
+.summary-section {
+  width: 30%; /* Adjust as needed */
+  margin-top: 60px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  position: relative; /* Positioning context for sticky element */
+}
+
+.sticky-total {
+  position: sticky;
+  top: 20px; /* Space from the top */
+  z-index: 100; /* Keep it above other content */
+}
+
+.total-amount {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.error {
+  color: red;
+  font-size: 0.8em;
+  font-size: 12px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+
+/* Mobile responsive */
+
+@media (max-width: 400px) {
+
+  .booking-container {
+    width: 85%;
+    padding: 20px;
+  }
+
+
+  .two-column-layout {
+    /* display: flex; */
+    flex-direction: column;
+    /* justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px; */
+}
+
+  .form-section {
+    width: 100%; 
+    margin-right: 20px;
+  }
+
+  .summary-section{
+    width: 85%;
+  }
+
+  .content-layout, .utrWrapper{
+    flex-direction: column;
+  }
+
+  .submit-button{
+    margin-top: 0;
+  }
+
+  .amount-details{
+    margin-right: 0;
+  }
+}
+
+.step3 .styled-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 16px;
+  appearance: none; /* Remove default arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="gray" d="M6 8l-4-4h8z"/></svg>'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+.step3 .styled-select:focus {
+  outline: none;
+  border-color: #007bff; /* Change border color on focus */
+}
+
+
+.pincodeInput{
+  width: 92% !important;
+}
+
+
+
+.step5 {
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.step5 h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.step5 .total-amount,
+.step5 .thirty-percent-amount {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 15px 0;
+}
+
+.step5 .total-amount span,
+.step5 .thirty-percent-amount span {
+  font-weight: bold;
+}
+
+.step5 .button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.step5 .prev-button,
+.step5 .submit-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.step5 .prev-button {
+  background-color: #ccc; /* Gray color */
+}
+
+.step5 .submit-button {
+  /* background-color: #4CAF50;  */
+  color: white;
+}
+
+.step5 .prev-button:hover,
+.step5 .submit-button:hover {
+  opacity: 0.9;
+}
+
+
+.step5 .utr-input {
+  margin: 20px 0;
+}
+
+.step5 .utr-input label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.step5 .utr-input input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
