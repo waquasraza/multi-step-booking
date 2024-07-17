@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Step4OrderDetails = ({ prevStep, nextStep, selectedServiceItems,selectedSpecialists, details }) => {
-  
+const Step4OrderDetails = ({ prevStep, nextStep, selectedServiceItems, selectedSpecialists, details }) => {
   const calculateTotalAmount = () => {
     return selectedServiceItems.reduce((total, item) => total + item.price, 0).toFixed(2);
   };
@@ -21,7 +20,7 @@ const Step4OrderDetails = ({ prevStep, nextStep, selectedServiceItems,selectedSp
       {/* Display selected services category-wise */}
       {Object.keys(groupedServices).map((category) => (
         <div key={category} className="category-section">
-          <h3>{category}</h3>
+          <h3 style={{marginTop: '10px'}}>{category}</h3>
           <table>
             <thead>
               <tr>
@@ -31,13 +30,23 @@ const Step4OrderDetails = ({ prevStep, nextStep, selectedServiceItems,selectedSp
             </thead>
             <tbody>
               {groupedServices[category].map((item) => (
-                <tr key={item.id}> {/* Use unique id instead of index */}
+                <tr key={item.id}>
                   <td>{item.name}</td>
-                  <td>₹{item.price.toFixed(2)}</td> {/* Format price */}
+                  <td>₹{item.price.toFixed(2)}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+
+          {/* Display selected specialist for this category */}
+          <div className="selected-specialist">
+            <h4 style={{fontSize: '16px', display: 'inline'}}>Selected Specialist:</h4>
+            {selectedSpecialists[category] ? (
+              <p>{selectedSpecialists[category]}</p>
+            ) : (
+              <p style={{display: 'inline', marginLeft: '10px'}}>No specialist selected for this category</p>
+            )}
+          </div>
         </div>
       ))}
       

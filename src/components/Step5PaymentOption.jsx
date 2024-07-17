@@ -29,10 +29,34 @@ const Step5PaymentOption = ({ prevStep, selectedServiceItems, selectedSpecialist
     }
 
     // Prepare email details
+    const bookingDetails = `
+      <h2>Booking Confirmation</h2>
+      <p><strong>Name:</strong> ${details?.name}</p>
+      <p><strong>Phone Number:</strong> ${details?.phoneNumber}</p>
+      <p><strong>Email:</strong> ${details?.email}</p>
+      <p><strong>Address:</strong> ${details?.address}</p>
+      <p><strong>Country:</strong> ${details?.country}</p>
+      <p><strong>State:</strong> ${details?.state}</p>
+      <p><strong>City:</strong> ${details?.city}</p>
+      <p><strong>Pincode:</strong> ${details?.pincode}</p>
+      <h3>Selected Services</h3>
+      ${Object.keys(selectedSpecialists).map(category => `
+        <h4>${category}</h4>
+        <ul>
+          ${selectedServiceItems.filter(item => item.category === category).map(item => `
+            <li>${item.name} - ₹${item.price.toFixed(2)}</li>
+          `).join('')}
+        </ul>
+        <p><strong>Specialist:</strong> ${selectedSpecialists[category]}</p>
+      `).join('')}
+      <p><strong>Total Amount:</strong> ₹${totalAmount}</p>
+      <p><strong>UTR Number:</strong> ${utrNumber}</p>
+    `;
+
     const emailDetails = {
       email: 'thewaquas@gmail.com', // Replace with actual email from form
-      name: 'Mamatha ks', // Replace with actual name from form
-      booking_details: `Booking message goes here`,
+      name: details.name, // Replace with actual name from form
+      booking_details: bookingDetails,
     };
 
     try {
