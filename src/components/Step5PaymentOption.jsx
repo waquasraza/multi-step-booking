@@ -54,8 +54,6 @@ const Step5PaymentOption = ({ prevStep, selectedServiceItems, selectedSpecialist
     `;
 
     const emailDetails = {
-      email: 'thewaquas@gmail.com', // Replace with actual email from form
-      name: details.name, // Replace with actual name from form
       booking_details: bookingDetails,
     };
 
@@ -69,18 +67,22 @@ const Step5PaymentOption = ({ prevStep, selectedServiceItems, selectedSpecialist
       });
 
       const data = await response.json();
-
+      
       if (response.ok) {
         console.log(data);
         setIsSubmitted(true); // Set submitted state
-      } else {
-        console.error(data);
-        setUtrError('Failed to send email. Please try again.');
-      }
-    } catch (error) {
+      } 
+      // else {
+      //   console.error(data);
+      //   setUtrError('Failed to send email. Please try again.');
+      // }
+    } 
+    
+    catch (error) {
       console.error('Error:', error);
-      setUtrError('An error occurred while sending the email.');
+      // setUtrError('An error occurred while sending the email.');
     }
+
   };
 
   return (
@@ -141,7 +143,7 @@ const Step5PaymentOption = ({ prevStep, selectedServiceItems, selectedSpecialist
           )}
         </div>
         <div className="image-container" style={{ flex: '1', display: 'flex', marginTop: '20px', justifyContent: 'center', alignItems: 'center' }}>
-          <img width={200} src="https://craftbeautysalon.com/wp-content/uploads/2024/07/raza.jpg" alt="Payment Illustration" />
+          <img width={200} src="https://craftbeautysalon.com/wp-content/uploads/2024/07/IMG_1101.jpg" alt="Payment Illustration" />
         </div>
       </div>
       <div className="button-container" style={{ display: 'flex', justifyContent: 'flex-start' }}>

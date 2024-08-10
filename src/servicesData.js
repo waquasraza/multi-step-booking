@@ -95,6 +95,15 @@ const services = [
           },
         ],
       },
+      {
+        name: 'Targated Treatment',
+        items: [
+          { name: 'Under Eye', price: 650 },
+          { name: 'Dermatological Pro Flash Eye Treatment', price: 1000 },
+          { name: 'Under Arm Treatment ', price: 800 },
+          { name: 'Dermalogical Under Arms', price: 1000 },
+        ],
+      },
     ],
   },
   {
@@ -256,40 +265,44 @@ const services = [
     name: 'Makeup',
     subcategories: [
       {
-        name: 'Engagement Makeup',
+        name: 'Makeup List',
         items: [
-          { name: 'HD', price: 8000 },
-          { name: 'Airdon (Stegn)', price: 10000 },
-          { name: 'HD + (Stegn)', price: 11000 },
+          { name: 'Saree Draping', price: 500 },
+          { name: 'Eye Makeup', price: 800 },
+          { name: 'Normal Makeup', price: 2000 },
+          { name: 'Party Makeup', price: 2500 },
+          { name: 'Engagement Makeup', price: 5000 },
+          { name: 'Pre Bridal Package', price: 5000 },
+          { name: 'Bridal Makeup', price: 15000 },
         ],
       },
-      {
-        name: 'Pre-Bridal Makeup',
-        items: [
-          { name: 'Makeup & Hair + Trial', price: 19000 },
-          { name: 'Makeup & Hair', price: 16000 },
-          { name: 'Makeup', price: 10000 },
-        ],
-      },
-      {
-        name: 'Bridal Makeup',
-        items: [
-          { name: 'Makeup & Hair + Trial', price: 23000 },
-          { name: 'Makeup & Hair', price: 19000 },
-          { name: 'Makeup', price: 12000 },
-        ],
-      },
+      // {
+      //   name: 'Pre-Bridal Makeup',
+      //   items: [
+      //     { name: 'Makeup & Hair + Trial', price: 19000 },
+      //     { name: 'Makeup & Hair', price: 16000 },
+      //     { name: 'Makeup', price: 10000 },
+      //   ],
+      // },
+      // {
+      //   name: 'Bridal Makeup',
+      //   items: [
+      //     { name: 'Makeup & Hair + Trial', price: 23000 },
+      //     { name: 'Makeup & Hair', price: 19000 },
+      //     { name: 'Makeup', price: 12000 },
+      //   ],
+      // },
     ],
   },
 ];
 
 const categorySpecialists = {
-  Skin: ['Srikanth', 'Haseena Shaikh', 'Dharni', 'Tushar'],
-  Facial: ['Srikanth', 'Haseena Shaikh', 'Dharni', 'Tushar'],
-  Body: ['Srikanth', 'Haseena Shaikh', 'Dharni', 'Tushar'],
-  "Hair Removal": ['Srikanth', 'Haseena Shaikh', 'Dharni', 'Tushar'],
-  Hair: ['Srikanth', 'Haseena Shaikh', 'Dharni', 'Tushar'],
-  Makeup: ['Srikanth', 'Haseena Shaikh', 'Dharni', 'Tushar'],
+  Skin: ['Srikanth', 'Haanika', 'Dharani', 'Tushar', 'Rakesh', 'Rajitha', 'Mamatha'],
+  Facial: ['Srikanth', 'Haanika', 'Dharani', 'Tushar', 'Rakesh', 'Rajitha', 'Mamatha'],
+  Body: ['Srikanth', 'Haanika', 'Dharani', 'Tushar', 'Rakesh', 'Rajitha', 'Mamatha'],
+  "Hair Removal": ['Srikanth', 'Haanika', 'Dharani', 'Tushar', 'Rakesh', 'Rajitha', 'Mamatha'],
+  Hair: ['Srikanth', 'Haanika', 'Dharani', 'Tushar', 'Rakesh', 'Rajitha', 'Mamatha'],
+  Makeup: ['Srikanth', 'Haanika', 'Dharani', 'Tushar', 'Rakesh', 'Rajitha', 'Mamatha'],
 };
 
 

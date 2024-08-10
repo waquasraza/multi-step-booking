@@ -128,7 +128,7 @@ const Step3BasicDetails = ({ prevStep, nextStep, selectedServiceItems, selectedS
         />
         {errors.address && <p className="error">{errors.address}</p>}
       </div>
-      <div className="form-row" style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div className="form-row" style={{ display: 'flex', justifyContent: 'flex-start' }}>
         <div className="form-group" style={{ width: '48%' }}>
           <label>Country:</label>
           <select className="styled-select" name="country" value={details?.country} onChange={handleChange} disabled>
@@ -136,7 +136,7 @@ const Step3BasicDetails = ({ prevStep, nextStep, selectedServiceItems, selectedS
             {/* Add more countries if needed */}
           </select>
         </div>
-        <div className="form-group" style={{ width: '48%' }}>
+        <div className="form-group" style={{ width: '45%' }}>
           <label>State:</label>
           <select className="styled-select" name="state" value={details?.state} onChange={handleStateChange}>
             <option value="">Select a state</option>
