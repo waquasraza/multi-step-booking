@@ -297,12 +297,12 @@ const services = [
 ];
 
 const categorySpecialists = {
-  Skin: ['Srikanth', 'Haanika', 'Dharani', 'Tushar', 'Rakesh', 'Rajitha', 'Mamatha'],
-  Facial: ['Srikanth', 'Haanika', 'Dharani', 'Tushar', 'Rakesh', 'Rajitha', 'Mamatha'],
-  Body: ['Srikanth', 'Haanika', 'Dharani', 'Tushar', 'Rakesh', 'Rajitha', 'Mamatha'],
-  "Hair Removal": ['Srikanth', 'Haanika', 'Dharani', 'Tushar', 'Rakesh', 'Rajitha', 'Mamatha'],
-  Hair: ['Srikanth', 'Haanika', 'Dharani', 'Tushar', 'Rakesh', 'Rajitha', 'Mamatha'],
-  Makeup: ['Srikanth', 'Haanika', 'Dharani', 'Tushar', 'Rakesh', 'Rajitha', 'Mamatha'],
+  Skin: ['Srikanth', 'Dharani', 'Tushar', 'Rakesh'],
+  Facial: ['Srikanth', 'Dharani', 'Tushar', 'Rakesh'],
+  Body: ['Srikanth', 'Dharani', 'Tushar', 'Rakesh'],
+  "Hair Removal": ['Srikanth', 'Dharani', 'Tushar', 'Rakesh'],
+  Hair: ['Srikanth', 'Dharani', 'Tushar', 'Rakesh'],
+  Makeup: ['Srikanth', 'Dharani', 'Tushar', 'Rakesh'],
 };
 
 
