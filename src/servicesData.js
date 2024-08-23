@@ -273,7 +273,7 @@ const services = [
           { name: 'Party Makeup', price: 2500 },
           { name: 'Engagement Makeup', price: 5000 },
           { name: 'Pre Bridal Package', price: 5000 },
-          { name: 'Bridal Makeup', price: 15000 },
+          { name: 'Bridal Makeup', price: 4999 },
         ],
       },
       // {
